@@ -54,6 +54,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         oauthServer
                 .tokenKeyAccess("isAnonymous() || hasRole('ROLE_TRUSTED_CLIENT')") // permitAll()
                 .checkTokenAccess("hasRole('TRUSTED_CLIENT')"); // isAuthenticated()
+                //.tokenKeyAccess("permitAll()") // permitAll()
+                //.checkTokenAccess("permitAll()"); // isAuthenticated()
     }
 
     /**

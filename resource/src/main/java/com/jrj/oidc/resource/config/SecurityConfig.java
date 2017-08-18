@@ -15,9 +15,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().anyRequest().authenticated()
+                .authorizeRequests()
+                                    //.mvcMatchers("/trace").permitAll()
+                                    //.anyRequest().authenticated()
+                                    .anyRequest().permitAll()
                 .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
+                .sessionManagement()
+                                    .sessionCreationPolicy(SessionCreationPolicy.NEVER)
         ;
     }
 }

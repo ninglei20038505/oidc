@@ -18,6 +18,7 @@ class UserController {
 
     @RequestMapping("/")
     public JsonNode home() {
+
         return restTemplate.getForObject(resourceURI, JsonNode.class);
     }
 

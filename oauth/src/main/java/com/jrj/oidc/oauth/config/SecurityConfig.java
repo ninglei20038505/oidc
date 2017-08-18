@@ -32,11 +32,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .formLogin()
+                //.authorizeRequests()
+                //.mvcMatchers("/trace").permitAll()
+                //.anyRequest().authenticated().and()
+            .formLogin()
                 .and()
-                .httpBasic().disable()
-                .anonymous().disable()
-                .authorizeRequests().anyRequest().authenticated()
+            .httpBasic().disable()
+            .anonymous().disable()
+            .authorizeRequests().anyRequest().authenticated()
         ;
     }
 }
